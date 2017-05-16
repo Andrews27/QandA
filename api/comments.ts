@@ -13,6 +13,11 @@ router.post('/', (req, res) => {
   newComment.save().then((createdComment) => res.json(createdComment));
 });
 
+router.get('/:id', (req, res) => {
+  Comment.findById(req.params.id)
+  .then((foundComments) => res.json(foundComments));
+});
+
 router.post('/:id', (req, res) => {
   Comment.findById(req.params.id).then((foundComment) => {
     foundComment.cDate = req.body.cDate;

@@ -14,6 +14,11 @@ router.post('/', (req, res) => {
   newQuestion.save().then((createdQuestion) => res.json(createdQuestion));
 });
 
+router.get('/:id', (req, res) => {
+  Question.findById(req.params.id)
+  .then((foundQuestions) => res.json(foundQuestions));
+});
+
 router.post('/:id', (req, res) => {
   Question.findById(req.params.id).then((foundQuestion) => {
     foundQuestion.qTitle = req.body.qTitle;

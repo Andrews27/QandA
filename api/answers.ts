@@ -15,6 +15,11 @@ router.post('/', (req, res) => {
   newAnswer.save().then((createdAnswer) => res.json(createdAnswer));
 });
 
+router.get('/:id', (req, res) => {
+  Answer.findById(req.params.id)
+  .then((foundAnswers) => res.json(foundAnswers));
+});
+
 router.post('/:id', (req, res) => {
   Answer.findById(req.params.id).then((foundAnswer) => {
     foundAnswer.aDate = req.body.aDate;
