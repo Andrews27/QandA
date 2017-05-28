@@ -10,7 +10,7 @@ export interface Comment extends mongoose.Document {
 
 let commentSchema = new mongoose.Schema ({
   cDate: {
-    type: String,
+    type: Date,
     required: true
   },
   answerId: {
@@ -23,7 +23,6 @@ let commentSchema = new mongoose.Schema ({
   },
   userId: {
     type: String,
-    required: true
   },
   likeCount: {
     type: Number

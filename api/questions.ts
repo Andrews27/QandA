@@ -8,8 +8,6 @@ router.post('/', (req, res) => {
   newQuestion.qTitle = req.body.qTitle;
   newQuestion.qContent = req.body.qContent;
   newQuestion.qDate = req.body.qDate;
-  newQuestion.userID = req.body.userID;
-  newQuestion.lessonID = req.body.lessonID;
   newQuestion.clickCount = req.body.clickCount;
   newQuestion.save().then((createdQuestion) => res.json(createdQuestion));
 });
@@ -24,8 +22,6 @@ router.post('/:id', (req, res) => {
     foundQuestion.qTitle = req.body.qTitle;
     foundQuestion.qContent = req.body.qContent;
     foundQuestion.qDate = req.body.qDate;
-    foundQuestion.userID = req.body.userID;
-    foundQuestion.lessonID = req.body.lessonID;
     foundQuestion.clickCount = req.body.clickCount;
     foundQuestion.save().then((savedQuestion) => res.json(savedQuestion));
   });
