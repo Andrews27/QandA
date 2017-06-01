@@ -14,25 +14,19 @@ let questionSchema = new mongoose.Schema ({
     type: String,
     required: true
   },
-  qContent: {
-    type: String,
-    required: true
-  },
   qDate: {
     type: Date,
     required: true
   },
   userID: {
-    type: String,
+    type: String
   },
   lessonID: {
     type: String,
     required: true
   },
-  clickCount: {
-    type: Number
-
-  },
+  qContent: String,
+  clickCount: Number
 });
 
 export default mongoose.model<Question>('Question', questionSchema);
