@@ -3,7 +3,7 @@ import * as mongoose from 'mongoose';
 export interface Comments extends mongoose.Document {
   cDate;
   answerId;
-  aContent;
+  cContent;
   userId;
   likeCount;
 }
@@ -17,7 +17,7 @@ let commentsSchema = new mongoose.Schema ({
     type: String,
     required: true
   },
-  aContent: {
+  cContent: {
     type: String,
     required: true
   },
