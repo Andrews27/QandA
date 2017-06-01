@@ -1,10 +1,10 @@
 import * as express from 'express';
-import Comment from '../models/comment';
+import Comments from '../models/comment';
 
 let router = express.Router();
 
 router.post('/', (req, res) => {
-  let newComment = new Comment();
+  let newComment = new Comments();
   newComment.cDate = req.body.cDate;
   newComment.answerId = req.body.answerId;
   newComment.aContent = req.body.aContent;
@@ -14,12 +14,12 @@ router.post('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  Comment.findById(req.params.id)
+  Comments.findById(req.params.id)
   .then((foundComments) => res.json(foundComments));
 });
 
 router.post('/:id', (req, res) => {
-  Comment.findById(req.params.id).then((foundComment) => {
+  Comments.findById(req.params.id).then((foundComment) => {
     foundComment.cDate = req.body.cDate;
     foundComment.answerId = req.body.answerId;
     foundComment.aContent = req.body.aContent;
@@ -30,7 +30,7 @@ router.post('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-  Comment.remove({_id: req.params.id})
+  Comments.remove({_id: req.params.id})
   .then((deletedComment) => res.json(deletedComment))
   .catch((err) => res.json(err));
 });
