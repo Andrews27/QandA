@@ -11,7 +11,9 @@ router.post('/', (req, res) => {
   newQuestion.userID = req.body.userID;
   newQuestion.lessonID = req.body.lessonID;
   newQuestion.clickCount = req.body.clickCount;
-  newQuestion.save().then((createdQuestion) => res.json(createdQuestion));
+  newQuestion.qCodeLink = req.body.qCodeLink;
+  newQuestion.save().then((createdQuestion) => res.json(createdQuestion))
+    .catch((err) => res.json(err));
 });
 
 router.get('/:id', (req, res) => {
@@ -27,6 +29,7 @@ router.post('/:id', (req, res) => {
     foundQuestion.userID = req.body.userID;
     foundQuestion.lessonID = req.body.lessonID;
     foundQuestion.clickCount = req.body.clickCount;
+    foundQuestion.qCodeLink = req.body.qCodeLink;
     foundQuestion.save().then((savedQuestion) => res.json(savedQuestion));
   });
 });

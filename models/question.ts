@@ -7,6 +7,7 @@ export interface Question extends mongoose.Document {
   userID;
   lessonID;
   clickCount;
+  qCodeLink;
 }
 
 let questionSchema = new mongoose.Schema ({
@@ -26,7 +27,8 @@ let questionSchema = new mongoose.Schema ({
     required: true
   },
   qContent: String,
-  clickCount: Number
+  clickCount: Number,
+  qCodeLink: String
 });
 
 export default mongoose.model<Question>('Question', questionSchema);

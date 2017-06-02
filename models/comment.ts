@@ -6,6 +6,7 @@ export interface Comments extends mongoose.Document {
   cContent;
   userId;
   likeCount;
+  cCodeLink;
 }
 
 let commentsSchema = new mongoose.Schema ({
@@ -19,14 +20,14 @@ let commentsSchema = new mongoose.Schema ({
   },
   cContent: {
     type: String,
-    required: true
   },
   userId: {
     type: String
   },
   likeCount: {
     type: Number
-  }
+  },
+  cCodeLink: String
 });
 
 export default mongoose.model<Comments>('Comments', commentsSchema);
