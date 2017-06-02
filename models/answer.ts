@@ -7,6 +7,7 @@ interface Answer extends mongoose.Document{
   userId;
   usefulCount;
   bestAnswer;
+  aCodeLink;
 }
 
 let answerSchema = new mongoose.Schema({
@@ -26,7 +27,8 @@ let answerSchema = new mongoose.Schema({
     type: String
   },
   usefulCount: Number,
-  bestAnswer: Boolean
+  bestAnswer: Boolean,
+  aCodeLink: String
 });
 
 export default mongoose.model<Answer>('Answer', answerSchema);

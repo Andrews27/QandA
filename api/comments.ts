@@ -10,6 +10,7 @@ router.post('/', (req, res) => {
   newComment.aComment = req.body.aComment;
   newComment.userId = req.body.userId;
   newComment.likeCount = req.body.likeCount;
+  newComment.cCodeLink = req.body.cCodeLink;
   newComment.save().then((createdComment) => res.json(createdComment));
 });
 
@@ -25,6 +26,7 @@ router.post('/:id', (req, res) => {
     foundComment.aComment = req.body.aComment;
     foundComment.userId = req.body.userId;
     foundComment.likeCount = req.body.likeCount;
+    foundComment.cCodeLink = req.body.cCodeLink;
     foundComment.save().then((savedComment) => res.json(savedComment));
   });
 });
