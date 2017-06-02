@@ -3,7 +3,6 @@ import Answer from '../models/answer';
 
 let router = express.Router();
 
-
 router.post('/', (req, res) => {
   let newAnswer = new Answer();
   newAnswer.aDate = req.body.aDate;
