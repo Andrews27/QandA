@@ -18,11 +18,13 @@ router.post('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
+  console.log("I'm not here");
   Answer.findById(req.params.id)
   .then((foundAnswers) => res.json(foundAnswers));
 });
 
 router.post('/:id', (req, res) => {
+  console.log("this should be working");
   Answer.findById(req.params.id).then((foundAnswer) => {
     foundAnswer.aDate = req.body.aDate;
     foundAnswer.questionId = req.body.questionId;
@@ -42,5 +44,7 @@ router.delete('/:id', (req, res) => {
   .catch((err) => res.json(err));
   console.log("second");
 });
+
+
 
 export default router;
