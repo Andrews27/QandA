@@ -34,6 +34,7 @@ router.post('/:id', (req, res) => {
   });
 });
 
+
 router.delete('/:id', (req, res) => {
   Question.remove({_id: req.params.id})
   .then((deletedQuestion) => res.json(deletedQuestion))
